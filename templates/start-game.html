@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>make gameboard</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    {% for row in game_board %}
+        {% set class = game_board.index(row) | int %}
+            {% for cell in row %}
+                <div 
+                class = new-game-row row new-game-row row{{class}}
+                id = {{class}}-{{row.index(cell)}}
+                >
+                    {{cell}} 
+                </div>
+                {% endfor %}
+    {% endfor %}
+    <form action="POST" id= 'new-game-guess-form'>
+        <input class = 'guess-form' type="text" name = 'guess' placeholder="Enter Your Guess"> </input>
+        <br>
+        <button class = 'guess-form' id= 'submit-guess'>Submit</button>
+    </form>
+    <br>
+    <div
+        id = 'successAlert'
+        class = 'alert'
+        role = 'alert'
+        style = 'display: none;'
+    >
+    </div>
+
+    <div
+        id = 'scoreboard'
+        role = 'alert'
+        style = 'display: none;'
+    >
+    </div>
+
+    <div>
+        <button action = '/' id= 'start-timer'>Start Game</button>
+    </div>
+
+    <!-- <div>
+        <button action = '/start-game' id= 'new-game-new-game'>New Game</button>
+    </div> -->
+
+    <div id= 'timer'>
+    </div>
+    
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="http://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

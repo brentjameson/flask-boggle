@@ -1,0 +1,30 @@
+body {
+    margin: 50px;
+}
+.row {
+    display: table;
+    width: 19.5%;
+    table-layout: optional;
+    border-spacing: 10px;
+    float: left;
+    border: black solid 1px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+input[name = 'guess'] {
+    margin-top: 50px;
+}
+
+.guess-form {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.row {
+    display: none;
+}
+
+#guess-form {
+    display: none;
+}
