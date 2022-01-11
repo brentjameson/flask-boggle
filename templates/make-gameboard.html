@@ -8,54 +8,51 @@
     <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
-    {% for row in game_board %}
-        {% set class = game_board.index(row) | int %}
-            {% for cell in row %}
-                <div 
-                class = row row{{class}}
-                id = {{class}}-{{row.index(cell)}}
-                >
-                    {{cell}} 
+    <h1></h1>
+    <div id= 'gameBoardParent'>
+        <div id= 'rows-parent'>
+            <div id = 'timer'></div>
+            {% for row in game_board %}
+                {% set class = game_board.index(row) %}
+            <div class= "rows row-{{class}}">
+                {% for cell in row %}
+                <div class= 'cells'>
+                    {{cell}}
                 </div>
+                    {% endfor %}
+            </div>
                 {% endfor %}
-    {% endfor %}
-    <form action="POST" id= 'guess-form'>
-        <input class = 'guess-form' type="text" name = 'guess' placeholder="Enter Your Guess"> </input>
-        <br>
-        <button class = 'guess-form' id= 'submit-guess'>Submit</button>
-    </form>
-    <br>
-    <div
-        id = 'successAlert'
-        class = 'alert'
-        role = 'alert'
-        style = 'display: none;'
-    >
+            <div id= 'word-bank'>
+                <div id = 'scoreboard'></div>
+                <div id= 'word-bank-header'>
+                    Word Bank
+                </div>  
+            </div>
+            <form id= 'start-timer'>
+                <button  id= 'new-game'>Start Game</button>
+            </form>
+            <div id = 'timer'></div>
+            <form action="POST" id= 'guess-form'>
+                <input id= 'guess-input' type="text" autocomplete= "off" for = 'guess' placeholder="Enter Your Guess"> 
+                <br>
+                <button class = 'guess-form' id= 'submit-guess'>Submit</button>
+                </input>
+
+                <div id = 'successAlert' class = 'alert' role = 'alert' style = 'display: none;'></div>
+                    
+                <div id = 'failureAlert' class = 'alert' role = 'alert' style = 'display: none;'></div>
+            </form>
+            <div id= 'game-over'>GAME OVER</div>
+
+            <div id = 'high-score' role = 'alert' style = 'display: none;'></div>
+        </div>   
     </div>
 
-    <div
-        id = 'scoreboard'
-        role = 'alert'
-        style = 'display: none;'
-    >
-    </div>
-
-    <div
-        id = 'high-score'
-        role = 'alert'
-        style = 'display: none;'
-    >
-    </div>
-
-    <form id= 'start-timer'>
-        <button  id= 'new-game'>Start Game</button>
-    </form>
-
-    <div id= 'timer'>
-    </div>
     
     <script src="http://unpkg.com/jquery"></script>
     <script src="http://unpkg.com/axios/dist/axios.js"></script>
+    <script src= "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/static/app.js"></script>
 </body>
 </html>

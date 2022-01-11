@@ -5,3 +5,5 @@
             {{row}}
         </div>
     {% endfor %}
+
+    show_or_hide_element{'row': 'show', 'guess-form': show, 'start-timer': 'hide'}
